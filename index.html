@@ -30,10 +30,69 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-    </div>
+        <div class="time-block">
+            <div class="row">
+            
+                <div class="hour">    
+                </div>
 
+                <textarea class="description">
+                </textarea>
+            
+                <button class="saveBtn">
+                </button> 
+
+            </div>
+        </div>
+      
+      
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript">
+        var timeRange = [9,10,11,12,13,14,15,16,17];
+        
+        function displayTimeBlock(){
+
+
+        }
+        function timeFrame(){
+            for (var i = 0; i < timeRange.length; i++) {
+                
+                var rowEl = $("<div>");
+                rowEl.addClass("row");
+                $(".container").append(rowEl);
+
+                var hourEl = $("<div>");
+                hourEl.addClass("hour");
+                if (timeRange[i] == 12 ){
+                    hourEl.text((timeRange[i]) + "PM");
+                }
+                else if(timeRange[i] >= 12){
+                    hourEl.text((timeRange[i]-12) + "PM")
+                }
+                else{
+                    hourEl.text(timeRange[i] + "AM");
+                }
+                $(rowEl).append(hourEl);
+
+                var descriptionEl = $("<textarea>");
+                descriptionEl.addClass("description");
+                $(rowEl).append(descriptionEl);
+
+                var saveEl = $("<button>");
+                saveEl.addClass("saveBtn");
+                $(rowEl).append(saveEl);
+
+               
+
+            }
+        }
+
+        timeFrame();
+    
+    </script>
     
   </body>
 </html>
