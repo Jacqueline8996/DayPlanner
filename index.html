@@ -40,6 +40,7 @@
                 </textarea>
             
                 <button class="saveBtn">
+                    <i></i>
                 </button> 
 
             </div>
@@ -53,11 +54,8 @@
     <script type="text/javascript">
         var timeRange = [9,10,11,12,13,14,15,16,17];
         
-        function displayTimeBlock(){
-
-
-        }
-        function timeFrame(){
+       
+        function displaySchedule(){
             for (var i = 0; i < timeRange.length; i++) {
                 
                 var rowEl = $("<div>");
@@ -83,14 +81,27 @@
 
                 var saveEl = $("<button>");
                 saveEl.addClass("saveBtn");
-                $(rowEl).append(saveEl);
+                $(rowEl).append(saveEl); 
+                var iconEl = $("<i>");
+                
+                saveEl.addClass("saveBtn");
+                $(saveEl).html("class = ui-icon ui-icon-disk");
+                $(".saveBtn").append(iconEl); 
+                
+                
 
-               
+            
 
             }
+            
         }
 
-        timeFrame();
+        function timeFrame() {
+            
+        }
+
+        displaySchedule();
+       
     
     </script>
     
