@@ -57,13 +57,13 @@
                 var hourEl = $("<div>");
                 hourEl.addClass("hour");
                 if (timeRange[i] == 12 ){
-                    hourEl.text((timeRange[i]) + "PM");
+                    hourEl.text((timeRange[i]) + " PM");
                 }
                 else if(timeRange[i] >= 12){
-                    hourEl.text((timeRange[i]-12) + "PM")
+                    hourEl.text((timeRange[i]-12) + " PM")
                 }
                 else{
-                    hourEl.text(timeRange[i] + "AM");
+                    hourEl.text(timeRange[i] + " AM");
                 }
                 $(rowEl).append(hourEl);
 
@@ -105,61 +105,31 @@
                 var iconEl = $("<i>");
                 
                 saveEl.addClass("saveBtn");
+                
                 $(saveEl).html("class = ui-icon ui-icon-disk");
                 $(".saveBtn").append(iconEl); 
-                timeFrame();
+                //timeFrame();
                 
-
-            
-
-            }
-            
-        }
-
-        function timeFrame(){
-        
-          //var time1 = time ;  
-            var currentTime = moment().hour();
-        
-
-          //console.log("current rime", currentTime);
-          //console.log("time in", time);
-          for (var i2 = 0; i2 < timeRange.length; i2++) {
-
-            if (timeRange[i2] == currentTime){
-                //change to grey
-                var descriptionEl = $("<textarea>");
-                descriptionEl.addClass("description");
-                descriptionEl.addClass("present");
-                console.log("in present");
-                
-            } 
-            else if (timeRange[i2] <=currentTime){
-
-                //change to k
-                var descriptionEl = $("<textarea>");
-                descriptionEl.addClass("description");
-                descriptionEl.addClass("future");
-                console.log("in future");
-
-            } 
-            else{
-                var descriptionEl = $("<textarea>");
-                descriptionEl.addClass("description");
-                descriptionEl.addClass("past");
-                console.log("past");
-
-            }
-
-            console.log("time",timeRange[i2]);
-            console.log("actual time", currentTime);
-
             };
+
+            
         };
+        function saveData(){
+            console.log ("hi youre in save dats");
+           ///local storage data 
+            var savDes = localStorage.descriptionEl 
+
+            document.descriptionEl.innerHTML = savDes
+            
+
+
+        };
+
 
         $(document).ready
         displaySchedule();
-        //timeFrame();
+        $(".saveBtn").click(saveData);
+       // timeFrame();
        // console.log("time",time,"actual time", currentTime);
         var timeU = moment().hours();
         console.log("console",timeU);
