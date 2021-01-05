@@ -53,9 +53,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
         var timeRange = [9,10,11,12,13,14,15,16,17];
+        var descriptionEl = $("<textarea>");
+        var currentTime = moment().hour();
         
        
         function displaySchedule(){
+
+            var timeU = moment().hours();
+
+        
             for (var i = 0; i < timeRange.length; i++) {
                 
                 var rowEl = $("<div>");
@@ -77,7 +83,35 @@
 
                 var descriptionEl = $("<textarea>");
                 descriptionEl.addClass("description");
+                //descriptionEl.addClass("present");
+
+                if (timeRange[i] == currentTime){
+                //change to grey
+                descriptionEl.addClass("present");
+                console.log("in present");
+                
+                } 
+                else if (timeRange[i] >= currentTime){
+
+                    //change to k
+                    descriptionEl.addClass("future");
+                    console.log("in future");
+
+                } 
+                else{
+                    descriptionEl.addClass("past");
+                    console.log("past");
+
+                }
+
+                //timeFrame();
                 $(rowEl).append(descriptionEl);
+
+            
+                var hora =timeRange[i];
+                console.log ("time is", hora)
+                //descriptionEl.addClass("future");
+                //timeFrame(hora);
 
                 var saveEl = $("<button>");
                 saveEl.addClass("saveBtn");
@@ -87,7 +121,7 @@
                 saveEl.addClass("saveBtn");
                 $(saveEl).html("class = ui-icon ui-icon-disk");
                 $(".saveBtn").append(iconEl); 
-                
+                timeFrame();
                 
 
             
@@ -96,11 +130,53 @@
             
         }
 
-        function timeFrame() {
-            
-        }
+        function timeFrame(){
+        
+          //var time1 = time ;  
+            var currentTime = moment().hour();
+        
 
+          //console.log("current rime", currentTime);
+          //console.log("time in", time);
+          for (var i2 = 0; i2 < timeRange.length; i2++) {
+
+            if (timeRange[i2] == currentTime){
+                //change to grey
+                var descriptionEl = $("<textarea>");
+                descriptionEl.addClass("description");
+                descriptionEl.addClass("present");
+                console.log("in present");
+                
+            } 
+            else if (timeRange[i2] <=currentTime){
+
+                //change to k
+                var descriptionEl = $("<textarea>");
+                descriptionEl.addClass("description");
+                descriptionEl.addClass("future");
+                console.log("in future");
+
+            } 
+            else{
+                var descriptionEl = $("<textarea>");
+                descriptionEl.addClass("description");
+                descriptionEl.addClass("past");
+                console.log("past");
+
+            }
+
+            console.log("time",timeRange[i2]);
+            console.log("actual time", currentTime);
+
+            };
+        };
+
+        $(document).ready
         displaySchedule();
+        //timeFrame();
+       // console.log("time",time,"actual time", currentTime);
+        var timeU = moment().hours();
+        console.log("console",timeU);
        
     
     </script>
