@@ -23,23 +23,31 @@ body {
   
   .description{
     white-space: pre-wrap;
+    margin-right:0;
+    margin-left:0;
+    width:60%;
   }
   
   .time-block{
     text-align: center;
     border-radius: 15px;
+
   }
   
   .row {
     white-space: pre-wrap;
     height: 80px;
-    border-top: 1px solid white;;
+    border-top: 1px solid white;
+
   }
   
   .hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    margin-right:0;
+    margin-left:0;
+    width:20%;
   }
   
   .past {
@@ -63,6 +71,9 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    margin-right:0;
+    margin-left:0;
+    width:20%;
   }
   
   .saveBtn i:hover {
