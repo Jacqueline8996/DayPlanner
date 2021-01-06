@@ -43,11 +43,12 @@
         var currentTime = moment().hour();
         
        
+        //display the schedule 
         function displaySchedule(){
 
             var timeU = moment().hours();
 
-        
+            //goes through the array to print out the days
             for (var i = 0; i < timeRange.length; i++) {
                 
                 var rowEl = $("<div>");
@@ -56,10 +57,8 @@
 
                 var hourEl = $("<div>");
                 hourEl.addClass("hour");
-               
 
-                hourEl.addClass(hora);
-                console.log("this hour", hourEl);
+                //How to print out the time 
                 if (timeRange[i] == 12 ){
                     hourEl.text((timeRange[i]) + " PM");
                 }
@@ -73,45 +72,39 @@
 
                 var descriptionEl = $("<textarea>");
                 descriptionEl.addClass("description");
-                //descriptionEl.addClass("present");
 
+                //changes clsses depending time of day
                 if (timeRange[i] == currentTime){
                 //change to grey
                 descriptionEl.addClass("present");
-                console.log("in present");
+               
                 
                 } 
                 else if (timeRange[i] >= currentTime){
 
                     //change to k
                     descriptionEl.addClass("future");
-                    console.log("in future");
+                    
 
                 } 
                 else{
                     descriptionEl.addClass("past");
-                    console.log("past");
 
                 }
 
                 //timeFrame();
                 $(rowEl).append(descriptionEl);
 
-            
-                var hora =timeRange[i];
-                console.log ("time is", hora)
-                //descriptionEl.addClass("future");
-                //timeFrame(hora);
-
                 //makes save button
                 var saveEl = $("<button>");
                 saveEl.addClass("saveBtn");
                 $(rowEl).append(saveEl);
+
                 //adds icon button to element 
                 var iconEl = $("<i>");
                 iconEl.addClass("far fa-save");
                 $(saveEl).append(iconEl);
-                //$(rowEl).append(saveEl); 
+            
             
     
                 
@@ -120,24 +113,25 @@
             
             
         };
-        function saveData(hora){
+
+        //saveData to local storage
+        function saveData(){
             
             console.log ("hi youre in save dats");
-            var timeis = $(".hour").text();
-            console.log("hour is",timeis);
-
-            localStorage.setItem("testKey", JSON.stringify(value))
-           // var timeclicked =  $(".hour").innerHTML;
-            //console.log("you clicked on the following time",timeclicked);
-            ///local storage data 
-            //var savDes = localStorage.descriptionEl 
-
-            //document.descriptionEl.innerHTML = savDes
             
+            var descriptionUser = $(".description").text;
+
+            localStorage.setItem("descriptionUser", descriptionUser);
+
+            console.log("description is",descriptionUser);
+            
+            var myText = localStorage.getItem("descriptionUser");
+            document.getElementsByClassName("description").value = myText;
 
 
         };
 
+        //get todays date
         function todayDate(){
             
             var tday = "Today is " + (moment().month() + 1)+"/"+moment().date()+ "/"+moment().year();
@@ -149,10 +143,8 @@
         todayDate();
         displaySchedule();
         $(".saveBtn").click(saveData);
-       // timeFrame();
-       // console.log("time",time,"actual time", currentTime);
-        var timeU = moment().hours();
-        console.log("console",timeU);
+
+
        
     
     </script>
