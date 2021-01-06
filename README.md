@@ -13,3 +13,6 @@ User will add text to time slots and save
   There is no installation required for this page, all files can be viewed at the following link:
 * Git Repository: https://github.com/Jacqueline8996/Homework5.git/
 * Git Hub Page : https://jacqueline8996.github.io/Homework5/
+
+# IMage of deployed app in use: 
+![alt text](asset/ActiveDay.png)
