@@ -56,6 +56,10 @@
 
                 var hourEl = $("<div>");
                 hourEl.addClass("hour");
+               
+
+                hourEl.addClass(hora);
+                console.log("this hour", hourEl);
                 if (timeRange[i] == 12 ){
                     hourEl.text((timeRange[i]) + " PM");
                 }
@@ -108,7 +112,7 @@
                 iconEl.addClass("far fa-save");
                 $(saveEl).append(iconEl);
                 //$(rowEl).append(saveEl); 
-                
+            
     
                 
             };
@@ -116,19 +120,33 @@
             
             
         };
-        function saveData(){
+        function saveData(hora){
+            
             console.log ("hi youre in save dats");
-           ///local storage data 
-            var savDes = localStorage.descriptionEl 
+            var timeis = $(".hour").text();
+            console.log("hour is",timeis);
 
-            document.descriptionEl.innerHTML = savDes
+            localStorage.setItem("testKey", JSON.stringify(value))
+           // var timeclicked =  $(".hour").innerHTML;
+            //console.log("you clicked on the following time",timeclicked);
+            ///local storage data 
+            //var savDes = localStorage.descriptionEl 
+
+            //document.descriptionEl.innerHTML = savDes
             
 
 
         };
 
+        function todayDate(){
+            
+            var tday = "Today is " + (moment().month() + 1)+"/"+moment().date()+ "/"+moment().year();
+            $("#currentDay").append(tday);
+
+        }
 
         $(document).ready
+        todayDate();
         displaySchedule();
         $(".saveBtn").click(saveData);
        // timeFrame();
