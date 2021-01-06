@@ -15,4 +15,5 @@ User will add text to time slots and save
 * Git Hub Page : https://jacqueline8996.github.io/Homework5/
 
 # IMage of deployed app in use: 
-![alt text](asset/ActiveDay.png)
+![Screenshot](ActiveDay.png)
+![alt text](Asset/ActiveDay.png)
