@@ -99,19 +99,21 @@
                 //descriptionEl.addClass("future");
                 //timeFrame(hora);
 
+                //makes save button
                 var saveEl = $("<button>");
                 saveEl.addClass("saveBtn");
-                $(rowEl).append(saveEl); 
+                $(rowEl).append(saveEl);
+                //adds icon button to element 
                 var iconEl = $("<i>");
+                iconEl.addClass("far fa-save");
+                $(saveEl).append(iconEl);
+                //$(rowEl).append(saveEl); 
                 
-                saveEl.addClass("saveBtn");
-                
-                $(saveEl).html("class = ui-icon ui-icon-disk");
-                $(".saveBtn").append(iconEl); 
-                //timeFrame();
+    
                 
             };
 
+            
             
         };
         function saveData(){
