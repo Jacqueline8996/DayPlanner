@@ -50,7 +50,7 @@
 
             //goes through the array to print out the days
             for (var i = 0; i < timeRange.length; i++) {
-                
+
                 var rowEl = $("<div>");
                 rowEl.addClass("row");
                 $(".container").append(rowEl);
@@ -72,6 +72,7 @@
 
                 var descriptionEl = $("<textarea>");
                 descriptionEl.addClass("description");
+                $(descriptionEl).attr('id', timeRange[i]);
 
                 //changes clsses depending time of day
                 if (timeRange[i] == currentTime){
@@ -104,9 +105,7 @@
                 var iconEl = $("<i>");
                 iconEl.addClass("far fa-save");
                 $(saveEl).append(iconEl);
-            
-            
-    
+              
                 
             };
 
@@ -115,21 +114,54 @@
         };
 
         //saveData to local storage
-        function saveData(){
+       // function saveData(){
             
-            console.log ("hi youre in save dats");
+        //    console.log ("hi youre in save dats");
             
-            var descriptionUser = $(".description").text;
+         //   var descriptionUser = $(".description").text;
 
-            localStorage.setItem("descriptionUser", descriptionUser);
+          //  localStorage.setItem("descriptionUser", descriptionUser);
 
-            console.log("description is",descriptionUser);
+           // console.log("description is",descriptionUser);
             
-            var myText = localStorage.getItem("descriptionUser");
-            document.getElementsByClassName("description").value = myText;
+           // var myText = localStorage.getItem("descriptionUser");
+           // document.getElementsByClassName("description").value = myText;
 
 
-        };
+       // };
+
+          //saveData to local storage
+          function saveData(){
+            
+                    
+            //$(".saveBtn").addClass("Saved");
+            // Save data to localstorage
+
+           // for (var i2 = 0; i2 < timeRange.length; i2++) {
+          ////    localStorage.setItem(descriptionEl).val();
+          //  }
+        
+           // console.log("this is my text value",descriptionEl.val());
+            //saveEl.addEventListener("click", saveData);
+            //var responseAns = $("<textarea>").val();
+
+            //  console.log("respomse", responseAns);
+            //$(this).val(localStorage.getItem($(this).attr("textera.description")));
+
+            
+            for (var i2 = 0; i2 < timeRange.length; i2++) {
+            
+            var responseText = $("#"+ timeRange[i2]).val();
+
+            console.log("this is my text",timeRange[i2],responseText);
+
+
+
+
+            }
+         }
+
+
 
         //get todays date
         function todayDate(){
