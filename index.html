@@ -113,44 +113,15 @@
             
         };
 
-        //saveData to local storage
-       // function saveData(){
-            
-        //    console.log ("hi youre in save dats");
-            
-         //   var descriptionUser = $(".description").text;
-
-          //  localStorage.setItem("descriptionUser", descriptionUser);
-
-           // console.log("description is",descriptionUser);
-            
-           // var myText = localStorage.getItem("descriptionUser");
-           // document.getElementsByClassName("description").value = myText;
-
-
-       // };
-
           //saveData to local storage
           function saveData(){
             
-                    
-            //$(".saveBtn").addClass("Saved");
-            // Save data to localstorage
-
-           // for (var i2 = 0; i2 < timeRange.length; i2++) {
-          ////    localStorage.setItem(descriptionEl).val();
-          //  }
-        
-           // console.log("this is my text value",descriptionEl.val());
-            //saveEl.addEventListener("click", saveData);
-            //var responseAns = $("<textarea>").val();
-
-            //  console.log("respomse", responseAns);
-            //$(this).val(localStorage.getItem($(this).attr("textera.description")));
+            event.preventDefault();
+            //sets up the area to catch the response
             var responseUse = {
             }
-            //localStorage.setItem("responseUse", JSON.stringify(responseUse));
 
+            //goes through the response and saves item to localstorage
             for (var i2 = 0; i2 < timeRange.length; i2++) {
             
             var hora = timeRange[i2];
@@ -159,26 +130,20 @@
 
             responseUse[hora] = responseText;
 
-
-
-            //console.log("this is my text",timeRange[i2],responseText);
             
-            //sets the submission
-            //localStorage.setItem("responseText", JSON.stringify(responseText));
-            
-            // get most recent submission
-            //var lastUser = localStorage.getItem("responseText");
-            //$(timeRange[i2]).textContent = lastUser;
-            //console.log("my response are ", responseUse)
             localStorage.setItem("responseUse", JSON.stringify(responseUse));
-            //var lastUser = JSON.parse(localStorage.getItem("responseUse"));
-            //$("#"+ timeRange[i2]).text = lastUser;
+            var lastUser = JSON.parse(localStorage.getItem("responseUse"));
+            
+      
+            //should return information to the correct location 
+            $("#" + hora + ".description").text = lastUser.hora;
 
-  
+            
+
             }
 
-            console.log("my response are ", responseUse)
-            //localStorage.setItem("user", JSON.stringify(responseUse));
+            console.log("my response are ", responseUse);
+
 
 
             
