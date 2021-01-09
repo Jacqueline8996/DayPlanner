@@ -147,18 +147,41 @@
 
             //  console.log("respomse", responseAns);
             //$(this).val(localStorage.getItem($(this).attr("textera.description")));
+            var responseUse = {
+            }
+            //localStorage.setItem("responseUse", JSON.stringify(responseUse));
 
-            
             for (var i2 = 0; i2 < timeRange.length; i2++) {
             
-            var responseText = $("#"+ timeRange[i2]).val();
+            var hora = timeRange[i2];
 
-            console.log("this is my text",timeRange[i2],responseText);
+            var responseText =$("#"+ timeRange[i2]).val();
+
+            responseUse[hora] = responseText;
 
 
 
+            //console.log("this is my text",timeRange[i2],responseText);
+            
+            //sets the submission
+            //localStorage.setItem("responseText", JSON.stringify(responseText));
+            
+            // get most recent submission
+            //var lastUser = localStorage.getItem("responseText");
+            //$(timeRange[i2]).textContent = lastUser;
+            //console.log("my response are ", responseUse)
+            localStorage.setItem("responseUse", JSON.stringify(responseUse));
+            //var lastUser = JSON.parse(localStorage.getItem("responseUse"));
+            //$("#"+ timeRange[i2]).text = lastUser;
 
+  
             }
+
+            console.log("my response are ", responseUse)
+            //localStorage.setItem("user", JSON.stringify(responseUse));
+
+
+            
          }
 
 
