@@ -122,30 +122,39 @@
             var responseUse = {
             }
 
+            
+
             //goes through the response and saves item to localstorage
             for (var i2 = 0; i2 < timeRange.length; i2++) {
-            
-            var hora = timeRange[i2];
 
-            var responseText =$("#"+ timeRange[i2]).val();
+              
 
-            responseUse[hora] = responseText;
+              var hora = timeRange[i2];
 
-            
-            localStorage.setItem("responseUse", JSON.stringify(responseUse[hora]));
-            var lastUser = JSON.parse(localStorage.getItem("responseUse"));
-            
-            console.log("last user", lastUser);
-      
-            //should return information to the correct location 
-            $("#" + hora + ".description").text = lastUser.hora;
+              var responseText =$("#"+ timeRange[i2]).val();
 
-            
+              responseUse[hora] = responseText;
 
-            }
+              var descriptionElbox = ("#" + hora + ".description").value;
+
+              
+              localStorage.setItem("responseUse", JSON.stringify(responseUse));
+              var lastUser = JSON.parse(localStorage.getItem("responseUse"));
+              
+              console.log("last user", lastUser);
         
+              //should return information to the correct location 
+              $("#" + hora + ".description").text = lastUser.hora;
+              //$("#" + hora + ".description").val(lastUser);
+              //descriptionEl.textContent = lastUser.
+               
 
+             
+            }
 
+        
+            console.log("responseUse", responseUse);
+            return responseUse
 
             
          }
@@ -163,6 +172,9 @@
         $(document).ready
         todayDate();
         displaySchedule();
+        if (localStorage.getItem("responseUse") === null) {
+          $("#" + hora + ".description").text = lastUser.hora;
+        }
         $(".saveBtn").click(saveData);
 
 
