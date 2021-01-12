@@ -85,6 +85,7 @@
 
                     //change to k
                     descriptionEl.addClass("future");
+
                     
 
                 } 
@@ -131,9 +132,10 @@
             responseUse[hora] = responseText;
 
             
-            localStorage.setItem("responseUse", JSON.stringify(responseUse));
+            localStorage.setItem("responseUse", JSON.stringify(responseUse[hora]));
             var lastUser = JSON.parse(localStorage.getItem("responseUse"));
             
+            console.log("last user", lastUser);
       
             //should return information to the correct location 
             $("#" + hora + ".description").text = lastUser.hora;
@@ -141,8 +143,7 @@
             
 
             }
-
-            console.log("my response are ", responseUse);
+        
 
 
 
